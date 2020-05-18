@@ -60,6 +60,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'drf_yasg',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +76,7 @@ MIDDLEWARE = [
     'drf_yasg.middleware.SwaggerExceptionMiddleware',
     'app.remove_next_middleware.RemoveNextMiddleware',
     'app.json404_middleware.JSON404Middleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -397,3 +399,11 @@ AES_SECRET = secret['AES_SECRET']
 AUTH_DOMAIN_URL = "127.0.0.1:8081"
 ACCOUNT_API_PATH = "/v1/user"
 from accounts.email_setup import *
+
+
+##############
+# CORS Setup #
+##############
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
